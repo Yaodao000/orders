@@ -21,3 +21,11 @@
 | git diff                      | 顯示自上次提交以來的變更差異
 | git stash                     | 暫存當前變更，讓工作區恢復到上次提交的狀態
 | git stash pop                 | 恢復暫存的變更。
+
+
+git commit -m "Initial commit"
+git remote add origin https://github.com/Yaodao000/school.git
+git push -u origin main
+git push
+git pull origin main
+Merge branch 'main' to sync with remote repository.
