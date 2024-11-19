@@ -23,7 +23,16 @@
 | git stash pop                 | 恢復暫存的變更。
 
 
-git commit -m "Initial commit"
+
+git status    //確認檔案狀態
+
+git add name.md     //name表示該檔案
+git add *.md     //全部有關於.md的檔案
+git add .     //變更的內容
+
+git commit -m "Initial commit"       /查看過去歷史跟更改紀錄(內容)
+
+
 git remote add origin https://github.com/Yaodao000/school.git
 git push -u origin main
 git push
