@@ -1,0 +1,63 @@
+<!-- order.html -->
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>點單系統</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .product-info {
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .order-button {
+            background: #ff4d4d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>點單系統</h1>
+
+    <div class="product-info">
+        <h2 id="product-name"></h2>
+        <div id="product-price"></div>
+        <button class="order-button" onclick="placeOrder()">點單</button>
+    </div>
+
+    <script>
+        // 获取URL中的查询参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const productName = urlParams.get('product');
+
+        // 显示选中的商品信息
+        const productDetails = {
+            '泰式椒麻雞腿飯': { price: '75 元' },
+            '泰式椒麻雞飯': { price: '70 元' },
+            // 其他商品 ...
+        };
+
+        if (productDetails[productName]) {
+            document.getElementById('product-name').textContent = productName;
+            document.getElementById('product-price').textContent = '價格: ' + productDetails[productName].price;
+        }
+
+        function placeOrder() {
+            alert('訂單已經提交！');
+            // 可以在這裡處理點單邏輯，比如將訂單發送到伺服器等
+        }
+    </script>
+
+</body>
+</html>

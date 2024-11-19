@@ -1,0 +1,13 @@
+body {
+    background-color: #fff5f5; /* 柔和紅色背景 */
+    margin: 0 auto;
+    position: relative;
+    min-height: 100vh;  /* 讓頁面最小高度為視窗高度 */
+    max-width: 100%;
+    overflow-y: auto;  /* 啟用垂直滾動條 */
+}
+
+main {
+    padding-bottom: 80px;  /* 確保底部的結帳按鈕不被內容遮擋 */
+}
+

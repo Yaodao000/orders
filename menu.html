@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<!-- 開啟頁面 -->
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>大同訂單</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f9f9f9;
+                color: #333;
+            }
+    
+            header {
+                background-color: #2d3b45;
+                color: white;
+                text-align: center;
+                padding: 20px;
+            }
+    
+            header h1 {
+                margin: 0;
+                font-size: 36px;
+            }
+    
+            nav {
+                background-color: #3b4a55;
+                padding: 10px 0;
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+    
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                gap: 20px;
+            }
+    
+            nav ul li {
+                padding: 10px 20px;
+                background-color: #4a5b66;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+    
+            nav ul li:hover {
+                background-color: #6d7f8c;
+                cursor: pointer;
+            }
+    
+            .menu-frame {
+                width: 100%;
+                height: 600px;
+                border: none;
+                display: none;
+                margin-top: 20px;
+            }
+    
+            .menu-frame.active {
+                display: block;
+            }
+    
+            .container {
+                padding: 20px;
+            }
+    
+            footer {
+                text-align: center;
+                padding: 20px;
+                background-color: #2d3b45;
+                color: white;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+        </style>
+</head>
+<!-- 畫面主標顏色 -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datong 訂購</title>
+    <link rel="icon" href="/assets/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: #fff5f5; /* 柔和紅色背景 */
+            margin: 0 auto;
+            position: relative;
+            min-height: 100vh;
+            max-width: 100%;
+        }
+
+        .header {
+            background: white;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #ff4d4d; /* 下方紅色分隔線 */
+        }
+
+        .search-bar {
+            flex: 1;
+            background: #ffe5e5; /* 搜索欄背景紅色 */
+            border-radius: 20px;
+            padding: 8px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .logo-section {
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ff4d4d; /* Logo字體紅色 */
+        }
+
+        .nav-tabs {
+            background: #ff4d4d; /* 紅色導覽列 */
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            font-size: 0.9rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            display: flex;
+            gap: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
+            border: 1px solid #ffcccc; /* 卡片邊框紅色 */
+        }
+
+        .product-card img {
+            width: 30%;
+            max-width: 100px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .product-info {
+            flex: 1;
+            min-width: 60%;
+        }
+
+        .price {
+            color: #ff4d4d; /* 價格紅色 */
+            margin-top: 8px;
+        }
+
+        .promotion-card {
+            background: #ffe5e5; /* 推廣卡紅色背景 */
+            border-radius: 8px;
+            margin: 10px;
+            padding: 15px;
+        }
+
+        .promotion-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .section-title {
+            padding: 10px 15px;
+            font-size: 1rem;
+            color: #ff4d4d; /* 標題紅色 */
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            border-top: 2px solid #ff4d4d; /* 頂部分隔線 */
+        }
+
+        .nav-item {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #ff4d4d; /* 導覽項目紅色 */
+        }
+
+        .nav-item i {
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+            color: #ff4d4d;
+        }
+
+        .cart-total {
+            position: fixed;
+            bottom: 80px;
+            left: 15px;
+            background: white;
+            padding: 8px 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ffcccc; /* 邊框紅色 */
+        }
+
+        .checkout-button {
+            position: fixed;
+            bottom: 80px;
+            right: 15px;
+            background: #ff4d4d; /* 紅色按鈕 */
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff4d4d; /* 紅色徽章 */
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .logo-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .product-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .product-card img {
+                width: 100%;
+                max-width: 150px;
+            }
+
+            .checkout-button {
+                width: 80%;
+                right: 10%;
+            }
+
+            .nav-tabs {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<!-- 主標logo -->
+    <div class="logo-section">
+        <div class="logo">
+            <img src="/assets/logo.png" alt="Logo" style="height: 40px;">
+            <span>Datong 訂購</span>
+        </div>
+        <div>
+            <i>➕</i>
+            <i>🔍</i>
+        </div>
+    </div>
+
+<!-- 美化 -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        color: #333;
+    }
+
+    header {
+        background-color: #d32f2f; /* 紅色背景 */
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 36px;
+    }
+
+    nav {
+        background-color: #ff000f; /* 紅色 */
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 20px;
+    }
+
+    nav ul li {
+        padding: 12px 25px;
+        background-color: #ffebee; /* 淺紅色 */
+        border-radius: 5px;
+        color: #d32f2f; /* 深紅色 */
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    nav ul li:hover {
+        background-color: #d32f2f;
+        color: white;
+        transform: scale(1.1);
+    }
+
+    .menu-frame {
+        width: 100%;
+        height: 600px;
+        border: none;
+        display: none;
+        margin-top: 20px;
+    }
+
+    .menu-frame.active {
+        display: block;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #d32f2f; /* 紅色 */
+        color: white;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    footer p {
+        margin: 0;
+        font-size: 14px;
+    }
+</style>
+
+<!-- button(到該頁面) -->
+    <nav>
+        <ul>
+            <li><a href="menus/breakfast_menu.html" target="menu-frame">早餐店</a></li>
+            <li><a href="menus/luwei_menu.html"     target="menu-frame">滷味</a></li>
+            <li><a href="menus/hotpot_menu.html"    target="menu-frame">綿羊火鍋</a></li>
+            <li><a href="menus/bafang_menu.html"    target="menu-frame">八方雲集</a></li>
+        </ul>
+    </nav>
+
+
+    <main>
+<!-- breakfast_menu -->
+        <section>
+            <h2 class="section-title">早餐店</h2>
+            <div class="product-card">
+                <img src="/assets/products/product1.png" alt="新品推薦">
+                <div class="product-info">
+                    <h3>新品推薦</h3>
+                    <div class="price">❄️ $0</div>
+                </div>
+            </div>
+        </section>
+<!-- luwei_menu -->
+        <section>
+            <h2 class="section-title">滷味</h2>
+            <div class="promotion-card">
+                <img src="/assets/promotions/promo1.png" alt="套餐優惠" class="promotion-image">
+                <h3>雙杯特價 $0</h3>
+            </div>
+        </section>
+
+<!-- hotpot_menu -->
+<iframe src="menus/hotpot_menu.html" width="100%" height="600px" style="border:none;"></iframe>
+
+<!-- bafang_menu -->
+        <section>
+            <h2 class="section-title">八方雲集</h2>
+            <div class="promotion-card">
+                <img src="/assets/promotions/promo1.png" alt="套餐優惠" class="promotion-image">
+                <h3>雙杯特價 $0</h3>
+            </div>
+        </section>
+        
+    </main>
+<!-- 帳單區 -->
+    <div class="cart-total">
+        🛒 $0
+    </div>
+<!-- 結帳區 -->
+    <button class="checkout-button">
+        現在結帳 →
+    </button>
+<!-- Website(目前用不到) -->
+    <nav class="bottom-nav">
+        <a href="https://Datong_dr.shop" class="nav-item">
+            <div>🏠</div>
+            <div>首頁</div>
+        </a>
+        <a href="https://Datong_dr.shop/carts/product" class="nav-item" style="position: relative;">
+            <div>🛒</div>
+<!--            <span class="badge"> </span>  -->
+            <div>購物車</div>
+        </a>
+        <a href="https://Datong_dr.shop/orders/product" class="nav-item">
+            <div>📋</div>
+            <div>訂單</div>
+        </a>
+        <a href="https://Datong_dr.shop/account/" class="nav-item">
+            <div>💳</div>
+            <div>會員卡</div>
+        </a>
+        <a href="https://Datong_dr.shop/more/" class="nav-item">
+            <div>👤</div>
+            <div>我的</div>
+        </a>
+    </nav>
+</body>
+</html>
