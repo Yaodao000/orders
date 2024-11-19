@@ -1,13 +1,19 @@
 cocotest
-├── menu.html               # 總菜單
+├── menu.html               # 總菜單頁面
 ├── menus/                  # 菜單資料夾
-│   ├── hotpotmenu.html     # 綿羊火鍋菜單
-│   ├── bafangmenu.html     # 八方雲集菜單
-│   ├── breakfast.html      # 早餐店 菜單
-│   ├── luwei.html          # 滷味 菜單
-│   ├── images/             # 圖片資料夾
+│   ├── hotpotmenu.html     # 綿羊火鍋菜單頁面
+│   ├── bafangmenu.html     # 八方雲集菜單頁面
+│   ├── breakfast.html      # 早餐店菜單頁面
+│   ├── luwei.html          # 滷味菜單頁面
+│   ├── images/             # 菜單相關圖片資料夾
 │   │   ├── logo.png        # 圖片（PNG 文件）
 ├── order.html              # 接單系統頁面
-------------------------------------------------
-├── drop_down.css           # 下拉菜單的 CSS 文件
-└── csharp.txt              # 專案結構
+├── drop_down.css           # 下拉菜單的 CSS 樣式表
+├── csharp.txt              # 專案結構的簡單描述文件
+├── .vscode/                # VSCode 配置資料夾
+│   └── settings.json       # VSCode 設定檔
+├── config/                 # 配置資料夾
+│   └── (可能有多個配置檔案)
+├── node_modules/           # Node.js 模組資料夾（如果專案使用 Node.js）
+├── command.md              # Code 描述文件，包含命令或指令說明
+└── (其他未列出的文件)
