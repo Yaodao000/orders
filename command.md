@@ -1,5 +1,32 @@
+
+git status    //確認檔案狀態
+
+git add name.md     //name表示該檔案
+git add *.md     //全部有關於.md的檔案
+git add .     //變更的內容
+
+git commit -m "Initial commit"       /查看過去歷史跟更改紀錄(內容)
+
+git log                       / 查看提交歷史記錄
+git log --oneline             /簡易查看歷史更改紀錄
+
+git diff   XXXX -- XXX          /顯示自上次提交以來的變更差異
+git checkout <>         /切換到指定的分支。
+
+
+---------------------------------------------------------------
+git remote add origin https://github.com/Yaodao000/school.git
+git push -u origin main
+git push
+git pull origin main
+Merge branch 'main' to sync with remote repository.
+
+---https://youtu.be/FKXRiAiQFiY?si=-b_nISX2O7he5qxr---
+
+
+------------------------------------------------------------------------
 | 指令                          | 描述
-|-------------------------------|----------------------------------------------------------------------------------|
+|-------------------------------|---------------------------------------------------------------------------|
 | git init                      | 初始化本地 Git 倉庫
 | git clone <repo-url>          | 從遠端倉庫克隆（下載）一個 Git 倉庫
 | git add <file>                | 將指定的文件添加到暫存區，準備提交
@@ -21,20 +48,3 @@
 | git diff                      | 顯示自上次提交以來的變更差異
 | git stash                     | 暫存當前變更，讓工作區恢復到上次提交的狀態
 | git stash pop                 | 恢復暫存的變更。
-
-
-
-git status    //確認檔案狀態
-
-git add name.md     //name表示該檔案
-git add *.md     //全部有關於.md的檔案
-git add .     //變更的內容
-
-git commit -m "Initial commit"       /查看過去歷史跟更改紀錄(內容)
-
-
-git remote add origin https://github.com/Yaodao000/school.git
-git push -u origin main
-git push
-git pull origin main
-Merge branch 'main' to sync with remote repository.
